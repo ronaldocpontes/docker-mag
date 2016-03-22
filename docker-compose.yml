@@ -6,7 +6,7 @@ app:
   ports:
     - "8088:80"
   links:
-    - php-fpm
+    - php
     - db
   volumes_from:
     - appdata
@@ -23,8 +23,10 @@ appdata:
     - ./volumes/nginx/conf.d:/etc/nginx/conf.d
     - ./logs/nginx:/var/log/nginx/log
 
-"php-fpm":
+php:
   image: docker-php
+  ports:
+    - "9000:9000"
   links:
     - db
   volumes_from:
@@ -68,5 +70,5 @@ setup:
     - M2SETUP_ADMIN_EMAIL=dummy@gmail.com
     - M2SETUP_ADMIN_USER=magento2
     - M2SETUP_ADMIN_PASSWORD=magento2
-    - M2SETUP_VERSION=2.0.0
+    - M2SETUP_VERSION=2.0.2
     - M2SETUP_USE_SAMPLE_DATA=true

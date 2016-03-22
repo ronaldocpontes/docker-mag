@@ -1,0 +1,2 @@
+Easily keep track of changes and deploy synchronization between different Magento environments.
+http://mageploy.com/
